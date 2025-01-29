@@ -1,0 +1,10 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+a {
+  font-weight: 600;
+  text-decoration: inherit;
+  color: inherit;
+  font: inherit;
+}

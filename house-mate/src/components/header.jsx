@@ -1,9 +1,12 @@
-import Nav from "@/components/Nav";
+import Nav from "@/components/nav";
 
 function Header(props) {
+  let { title } = props;
   return (
     <header>
-      <h1></h1>
+      <h1>
+        <a href="/">{title}</a>
+      </h1>
       <Nav></Nav>
     </header>
   );
