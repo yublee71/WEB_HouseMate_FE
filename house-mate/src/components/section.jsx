@@ -1,10 +1,13 @@
 import "./section.css";
 
-function Section({ title }) {
+function Section({ title, options }) {
   return (
     <section class="main-section">
       <h2>{title}</h2>
-      <div></div>
+      <div class="option-section">
+        <div></div>
+        <div></div>
+      </div>
     </section>
   );
 }
