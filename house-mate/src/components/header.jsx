@@ -14,15 +14,14 @@ const StyledHeader = styled.header`
   height: 3rem;
   width: 100vw;
   box-sizing: border-box;
-  overflow: visible;
 `;
 
 const StyledHeaderContent = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-grow: 1;
-  gap: 1rem;
+  width: 100%;
+  gap: 5%;
   align-items: center;
 `;
 
