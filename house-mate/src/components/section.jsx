@@ -1,15 +1,37 @@
-import "./section.css";
+import styled from "styled-components";
 
-function Section({ title, options }) {
+const StyledSection = styled.section`
+  width: 30%;
+  height: 80%;
+`;
+const StyledSectionDiv = styled.div`
+  height: 3rem;
+  margin: 10px 0;
+  border-radius: 15px;
+  background-color: var(--color-grey-100);
+  display: flex;
+  align-items: center;
+  div {
+    width: 50%;
+  }
+  div:first-child {
+    height: 2.2rem;
+    width: 50%;
+    border-radius: 13px;
+    margin: 0 8px;
+    background-color: white;
+    box-shadow: 0px 1px 9px rgba(128, 128, 128, 0.404);
+  }
+`;
+
+export function Section({ title, options }) {
   return (
-    <section class="main-section">
+    <StyledSection>
       <h2>{title}</h2>
-      <div class="option-section">
+      <StyledSectionDiv>
         <div></div>
         <div></div>
-      </div>
-    </section>
+      </StyledSectionDiv>
+    </StyledSection>
   );
 }
-
-export default Section;

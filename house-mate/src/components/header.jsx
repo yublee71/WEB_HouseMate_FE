@@ -1,24 +1,44 @@
-import Nav from "@/components/nav";
-import SearchBar from "@/components/searchbar";
-import Profiles from "@/components/profiles";
-import SideBar from "@/components/sidebar";
-import "./header.css";
+import { SideBar } from "@/components/sidebar";
+import { SearchBar } from "@/components/searchbar";
+// import { Nav } from "@/components/nav";
+import { Profiles } from "@/components/profiles";
+import styled from "styled-components";
 
-function Header({ logo, title }) {
+const StyledHeader = styled.header`
+  background-color: var(--color-grey-100);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  height: 3rem;
+  width: 100vw;
+  box-sizing: border-box;
+  overflow: visible;
+`;
+
+const StyledHeaderContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-grow: 1;
+  gap: 1rem;
+  align-items: center;
+`;
+
+export function Header({ logo, title }) {
   return (
-    <header>
-      <SideBar></SideBar>
-      <div class="header-main">
+    <StyledHeader>
+      <SideBar />
+      <StyledHeaderContent>
         <h1>
           <a href="/">
-            <span class="emoji">{logo}</span> {title}
+            <span className="emoji">{logo}</span> {title}
           </a>
         </h1>
-        <SearchBar></SearchBar>
-        <Profiles></Profiles>
-      </div>
-    </header>
+        <SearchBar />
+        <Profiles />
+      </StyledHeaderContent>
+    </StyledHeader>
   );
 }
-
-export default Header;

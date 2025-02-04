@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import Header from "@/components/header";
-import MainSection from "@/components/mainsection";
-import Footer from "@/components/footer";
-import AddButton from "./components/addbutton";
+import { Header } from "@/components/header";
+import { MainSection } from "@/components/mainsection";
+import { Footer } from "@/components/footer";
+import { AddButton } from "./components/addbutton";
 
 function App() {
   return (

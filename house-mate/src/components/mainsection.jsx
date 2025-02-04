@@ -1,6 +1,6 @@
-import Section from "@/components/section";
+import { Section } from "@/components/section";
 
-function MainSection(props) {
+export function MainSection(props) {
   return (
     <main>
       <Section title="To-buy"></Section>
@@ -8,5 +8,3 @@ function MainSection(props) {
     </main>
   );
 }
-
-export default MainSection;
