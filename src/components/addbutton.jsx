@@ -2,36 +2,27 @@ import styled from "styled-components";
 
 const StyledAddButton = styled.button`
   position: fixed;
-  width: 70px;
-  height: 70px;
-  border-radius: 90%;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
   border: none;
-  bottom: 30px;
-  right: 30px;
+  bottom: 32px;
+  right: 32px;
   background-color: var(--color-red-100);
+  padding: 2px 0 0 2px;
+  img {
+    height: 30%;
+  }
 `;
 
-const AddButtonSpan = styled.span`
-  background-color: white;
-  position: absolute;
-  &:first-child {
-    height: 25px;
-    width: 1.5px;
-    top: 35%;
-  }
-  &:nth-child(2) {
-    width: 25px;
-    height: 1.5px;
-    top: 50%;
-    left: 35%;
-  }
+const StyledAddSign = styled.img`
+  height: 24rem;
 `;
 
 export function AddButton() {
   return (
     <StyledAddButton>
-      <AddButtonSpan />
-      <AddButtonSpan />
+      <img src="/src/assets/addsign.png" alt="add sign" height="24px" />
     </StyledAddButton>
   );
 }
