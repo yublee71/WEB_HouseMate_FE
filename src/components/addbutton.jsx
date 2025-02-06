@@ -15,10 +15,6 @@ const StyledAddButton = styled.button`
   }
 `;
 
-const StyledAddSign = styled.img`
-  height: 24rem;
-`;
-
 export function AddButton() {
   return (
     <StyledAddButton>
