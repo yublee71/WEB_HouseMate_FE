@@ -20,7 +20,7 @@ const StyledAddButton = styled.button`
   }
 `;
 
-export function AddButton() {
+export function AddButton({ groceries, setgroceries, chores, setchores }) {
   const [isVisible, setisVisible] = useState(false);
   return (
     <>
@@ -34,7 +34,15 @@ export function AddButton() {
           }}
         />
       </StyledAddButton>
-      {isVisible && <AddSection setVisibility={setisVisible} />}
+      {isVisible && (
+        <AddSection
+          setVisibility={setisVisible}
+          groceries={groceries}
+          setgroceries={setgroceries}
+          chores={chores}
+          setchores={setchores}
+        />
+      )}
     </>
   );
 }

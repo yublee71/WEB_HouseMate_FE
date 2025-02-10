@@ -24,7 +24,12 @@ const StyledSectionDiv = styled.div`
   }
 `;
 
-export function Section({ title, options }) {
+export function Section({ title, content }) {
+  const lis = [];
+  for (let i = 0; i < content.length; i++) {
+    let t = content[i];
+    lis.push(<li key={i}>{t.item}</li>);
+  }
   return (
     <StyledSection>
       <h2>{title}</h2>
@@ -32,6 +37,7 @@ export function Section({ title, options }) {
         <div></div>
         <div></div>
       </StyledSectionDiv>
+      <ul>{lis}</ul>
     </StyledSection>
   );
 }

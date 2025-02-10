@@ -21,10 +21,11 @@ const StyledAddSection = styled.section`
   }
 `;
 
-export function AddSection({ setVisibility }) {
+export function AddSection(props) {
+  let setVisibility = props.setVisibility;
+  let groceries = props.groceries;
   return (
     <StyledAddSection>
-      <form action="" method="GET"></form>
       <img
         src="/src/assets/close.png"
         alt="close"
@@ -33,6 +34,18 @@ export function AddSection({ setVisibility }) {
           setVisibility(false);
         }}
       />
+      <form
+        action=""
+        method="GET"
+        onSubmit={(event) => {
+          const new_item = event.target.value;
+          groceries.push({ item: new_item });
+        }}
+      >
+        <label htmlFor="item">Add item</label>
+        <input type="text" id="item" name="item" placeholder="item" required />
+        <button type="submit">submit</button>
+      </form>
     </StyledAddSection>
   );
 }

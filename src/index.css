@@ -45,6 +45,12 @@ h2 {
   margin: 0;
 }
 
+input,
+label {
+  display: block;
+  font: inherit;
+}
+
 .emoji {
   position: relative;
   bottom: 0.05em;
