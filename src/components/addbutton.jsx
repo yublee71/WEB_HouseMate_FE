@@ -21,7 +21,7 @@ const StyledAddButton = styled.button`
 `;
 
 export function AddButton() {
-  const [isVisible, setVisibility] = useState(false);
+  const [isVisible, setisVisible] = useState(false);
   return (
     <>
       <StyledAddButton>
@@ -30,11 +30,11 @@ export function AddButton() {
           alt="add sign"
           height="24px"
           onClick={() => {
-            setVisibility(true);
+            setisVisible(true);
           }}
         />
       </StyledAddButton>
-      {isVisible && <AddSection />}
+      {isVisible && <AddSection setVisibility={setisVisible} />}
     </>
   );
 }
