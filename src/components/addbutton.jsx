@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { AddSection } from "./addsection";
 import { useState } from "react";
+import { AddSection } from "@/components/addsection";
 
 const StyledAddButton = styled.button`
   position: fixed;
@@ -20,22 +20,10 @@ const StyledAddButton = styled.button`
   }
 `;
 
-// const StyledAddSection = styled.section`
-//   position: fixed;
-//   top: 20%;
-//   left: 15%;
-//   height: 60%;
-//   width: 70%;
-//   background-color: var(--color-grey-100);
-//   border-radius: 15px;
-//   box-shadow: 0px 1px 9px rgba(128, 128, 128, 0.404);
-// `;
-
 export function AddButton() {
   const [isVisible, setVisibility] = useState(false);
   return (
     <>
-      <AddSection></AddSection>
       <StyledAddButton>
         <img
           src="/src/assets/addsign.png"
@@ -45,8 +33,8 @@ export function AddButton() {
             setVisibility(true);
           }}
         />
-        {/* {isVisible && <StyledAddSection>hi</StyledAddSection>} */}
       </StyledAddButton>
+      {isVisible && <AddSection />}
     </>
   );
 }
