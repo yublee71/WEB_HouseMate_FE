@@ -24,6 +24,7 @@ const StyledAddSection = styled.section`
 export function AddSection(props) {
   let setVisibility = props.setVisibility;
   let groceries = props.groceries;
+  let setgroceries = props.setgroceries;
   return (
     <StyledAddSection>
       <img
@@ -38,8 +39,10 @@ export function AddSection(props) {
         action=""
         method="GET"
         onSubmit={(event) => {
-          const new_item = event.target.value;
-          groceries.push({ item: new_item });
+          event.preventDefault();
+          const new_item = event.target.item.value;
+          setgroceries([...groceries, { item: new_item }]);
+          setVisibility(false);
         }}
       >
         <label htmlFor="item">Add item</label>
