@@ -1,5 +1,5 @@
-import { useState } from "react";
 import "./App.css";
+import { useState } from "react";
 import { Header } from "@/components/header";
 import { MainSection } from "@/components/mainsection";
 import { Footer } from "@/components/footer";

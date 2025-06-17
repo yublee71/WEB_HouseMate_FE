@@ -1,7 +1,7 @@
 import { SideBar } from "@/components/sidebar";
 import { SearchBar } from "@/components/searchbar";
 // import { Nav } from "@/components/nav";
-import { Profiles } from "@/components/profiles";
+import { Profiles } from "./auth/profiles";
 import styled from "styled-components";
 
 const StyledHeader = styled.header`

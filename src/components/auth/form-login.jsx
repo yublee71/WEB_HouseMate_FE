@@ -1,0 +1,17 @@
+import { Form, Input, Button } from "./form-components";
+
+export function LoginForm() {
+  return (
+    <Form>
+      <div>
+        <label htmlFor="email">E-mail</label>
+        <Input type="email" id="email" required />
+      </div>
+      <div>
+        <label htmlFor="password">Password</label>
+        <Input type="password" id="password" required />
+      </div>
+      <Button type="submit">Log In</Button>
+    </Form>
+  );
+}
