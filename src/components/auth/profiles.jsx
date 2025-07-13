@@ -4,31 +4,20 @@ import { useEffect, useState } from "react";
 import { AuthPopup } from "./authpopup";
 import { onAuthStateChanged } from "firebase/auth";
 import { ProfilePopup } from "./profilepopup";
-
-const Wrapper = styled.div`
-  background-color: var(--color-grey-200);
-  border-radius: 20px;
-  height: 2.5rem;
-  flex-grow: 1;
-  max-width: 5rem;
-  min-width: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+import { Button } from "@mui/material";
 
 const LoginButton = styled.button`
   border: none;
   background-color: transparent;
   font-family: inherit;
-  font-weight: 600;
   cursor: pointer;
+  font-size: 16px;
 `;
 
 const Profile = styled.div`
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 14px;
   cursor: pointer;
+  font-weight: 600;
 `;
 
 export function Profiles() {
@@ -51,7 +40,17 @@ export function Profiles() {
   };
   return (
     <>
-      <Wrapper>
+      <Button
+        variant="outlined"
+        sx={{
+          backgroundColor: "white",
+          height: "2.2rem",
+          flexGrow: 1,
+          maxWidth: "9rem",
+          minWidth: "3rem",
+          fontSize: "30px",
+        }}
+      >
         {!isLoading ? (
           <>
             {usr ? (
@@ -61,7 +60,7 @@ export function Profiles() {
             )}
           </>
         ) : null}
-      </Wrapper>
+      </Button>
       {isLoginPopupOpen ? (
         <AuthPopup setIsPopupOpen={setIsLoginPopupOpen} />
       ) : null}

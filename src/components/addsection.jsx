@@ -28,7 +28,7 @@ export function AddSection(props) {
   return (
     <StyledAddSection>
       <img
-        src="/src/assets/close.png"
+        src="close.png"
         alt="close"
         height="24px"
         onClick={() => {
