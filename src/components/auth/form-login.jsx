@@ -1,4 +1,5 @@
-import { Form, Input, Button } from "./form-components";
+import { Form, Input } from "./form-components";
+import { Button } from "@mui/material";
 
 export function LoginForm() {
   return (
@@ -11,7 +12,9 @@ export function LoginForm() {
         <label htmlFor="password">Password</label>
         <Input type="password" id="password" required />
       </div>
-      <Button type="submit">Log In</Button>
+      <Button type="submit" variant="contained">
+        Log In
+      </Button>
     </Form>
   );
 }

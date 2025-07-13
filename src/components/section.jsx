@@ -24,11 +24,20 @@ const StyledSectionDiv = styled.div`
   }
 `;
 
+const StyledInput = styled.input`
+  display: inline-block;
+`;
+
 export function Section({ title, content }) {
   const lis = [];
   for (let i = 0; i < content.length; i++) {
     let t = content[i];
-    lis.push(<li key={i}>{t.item}</li>);
+    lis.push(
+      <div>
+        <StyledInput type="checkbox" key={i} />
+        {t.item}
+      </div>
+    );
   }
   return (
     <StyledSection>

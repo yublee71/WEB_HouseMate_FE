@@ -4,23 +4,25 @@ import { auth } from "../../firebase";
 import { FirebaseError } from "firebase/app";
 import { useState } from "react";
 import { Error } from "./error";
+import { Button } from "@mui/material";
 
-const Button = styled.button`
-  background-color: transparent;
-  border: 1px solid black;
-  border-radius: 5px;
-  font: inherit;
-  padding: 5px;
-  width: 70%;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  cursor: pointer;
-`;
+// const Button = styled.button`
+//   background-color: transparent;
+//   border: 1px solid black;
+//   border-radius: 5px;
+//   font: inherit;
+//   padding: 5px;
+//   width: 70%;
+//   height: 30px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 5px;
+//   cursor: pointer;
+// `;
 
 const Logo = styled.img`
+  margin-left: 10px;
   height: 100%;
 `;
 
@@ -46,7 +48,11 @@ export function GithubButton({ setIsPopupOpen }) {
   };
   return (
     <>
-      <Button onClick={onClick}>
+      <Button
+        onClick={onClick}
+        variant="outlined"
+        sx={{ width: "70%", height: "40px" }}
+      >
         Continue with Github
         <Logo src="/github-logo.svg" />
       </Button>
