@@ -1,16 +1,26 @@
 import { Form, Input } from "./form-components";
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 
 export function SignUpForm() {
   return (
     <Form>
       <div>
-        <label htmlFor="email">E-mail</label>
-        <Input type="email" id="email" required />
+        <TextField
+          label="E-mail"
+          type="email"
+          id="email"
+          size="small"
+          sx={{ width: "100%" }}
+        ></TextField>
       </div>
       <div>
-        <label htmlFor="password">Password</label>
-        <Input type="password" id="password" required />
+        <TextField
+          label="Password"
+          type="password"
+          id="password"
+          size="small"
+          sx={{ width: "100%" }}
+        ></TextField>
       </div>
       <Button type="submit" variant="contained">
         Sign up
