@@ -92,7 +92,7 @@ export function Profiles() {
             minWidth: "3rem",
             fontWeight: "600",
             padding: { xs: "0" },
-            fontSize: { xs: "12px" },
+            fontSize: { xs: "12px", sm: "14px" },
           }}
         >
           Log in
