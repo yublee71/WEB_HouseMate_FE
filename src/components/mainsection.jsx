@@ -5,6 +5,9 @@ const StyledMain = styled.main`
   display: flex;
   justify-content: center;
   gap: 120px;
+  @media (max-width: 600px) {
+    gap: 30px;
+  }
 `;
 
 export function MainSection({ firstSection, secondSection }) {

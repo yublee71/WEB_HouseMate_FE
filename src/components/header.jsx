@@ -14,6 +14,11 @@ const StyledHeader = styled("header")(({ theme }) => ({
   height: "3rem",
   width: "100vw",
   boxSizing: "border-box",
+  [theme.breakpoints.down("sm")]: {
+    gap: 0,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
 }));
 
 const StyledHeaderContent = styled("div")(({ theme }) => ({
@@ -24,6 +29,9 @@ const StyledHeaderContent = styled("div")(({ theme }) => ({
   gap: "10%",
   alignItems: "center",
   margin: "0 20px",
+  [theme.breakpoints.down("sm")]: {
+    gap: 0,
+  },
 }));
 
 export function Header({ logo, title }) {

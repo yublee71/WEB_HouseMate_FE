@@ -44,7 +44,7 @@ h1 {
 
 h2 {
   margin: 0;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 input,
@@ -56,4 +56,17 @@ label {
 .emoji {
   position: relative;
   bottom: 0.05em;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+  div {
+    font-size: 16px;
+  }
 }

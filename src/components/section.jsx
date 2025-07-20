@@ -4,6 +4,9 @@ import styled from "styled-components";
 const StyledSection = styled.section`
   width: 30%;
   height: 80%;
+  @media (max-width: 600px) {
+    width: 40%;
+  }
 `;
 
 const StyledUl = styled.ul`
