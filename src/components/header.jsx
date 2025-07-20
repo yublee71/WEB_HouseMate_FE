@@ -32,6 +32,7 @@ const StyledHeaderContent = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     gap: 0,
     margin: 0,
+    justifyContent: "space-around",
   },
 }));
 
