@@ -88,9 +88,11 @@ export function Profiles() {
             // backgroundColor: "white",
             height: "2.2rem",
             flexGrow: 1,
-            maxWidth: "7rem",
+            maxWidth: { sm: "7rem", xs: "4rem" },
             minWidth: "3rem",
             fontWeight: "600",
+            padding: { xs: "0" },
+            fontSize: { xs: "12px" },
           }}
         >
           Log in
