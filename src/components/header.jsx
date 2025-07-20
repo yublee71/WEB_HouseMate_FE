@@ -31,6 +31,7 @@ const StyledHeaderContent = styled("div")(({ theme }) => ({
   margin: "0 20px",
   [theme.breakpoints.down("sm")]: {
     gap: 0,
+    margin: 0,
   },
 }));
 

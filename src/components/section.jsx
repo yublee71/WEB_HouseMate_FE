@@ -16,6 +16,10 @@ const StyledUl = styled.ul`
   padding: 0px;
   margin-top: 40px;
   font-size: 18px;
+  @media (max-width: 600px) {
+    gap: 10px;
+    margin-top: 15px;
+  }
 `;
 // const StyledSectionDiv = styled.div`
 //   height: 3rem;
