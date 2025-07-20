@@ -23,6 +23,9 @@ const theme = createTheme({
       contrastText: "#000",
     },
   },
+  typography: {
+    fontFamily: "'Inter'",
+  },
 });
 
 function App() {

@@ -1,9 +1,18 @@
-import { Box, Tab, Tabs } from "@mui/material";
+import { Box, Tab, Tabs, Divider } from "@mui/material";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
   width: 30%;
   height: 80%;
+`;
+
+const StyledUl = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0px;
+  margin-top: 40px;
+  font-size: 18px;
 `;
 // const StyledSectionDiv = styled.div`
 //   height: 3rem;
@@ -27,6 +36,7 @@ const StyledSection = styled.section`
 
 const StyledInput = styled.input`
   display: inline-block;
+  margin-right: 14px;
 `;
 
 export function Section({ title, content }) {
@@ -37,6 +47,7 @@ export function Section({ title, content }) {
       <div>
         <StyledInput type="checkbox" key={i} />
         {t.item}
+        <Divider sx={{ marginTop: "20px" }} />
       </div>
     );
   }
@@ -44,16 +55,29 @@ export function Section({ title, content }) {
     <StyledSection>
       <h2>{title}</h2>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs aria-label="basic tabs example" centered>
-          <Tab label="Item One" value="1" sx={{ zIndex: "-1" }} />
-          <Tab label="Item Two" value="2" sx={{ zIndex: "-1" }} />
+        <Tabs
+          aria-label="basic tabs example"
+          variant="fullWidth"
+          centered
+          sx={{ fontSize: "18px" }}
+        >
+          <Tab
+            label="Recurring"
+            value="1"
+            sx={{ zIndex: "-1", textTransform: "none", font: "inherit" }}
+          />
+          <Tab
+            label="One-off"
+            value="2"
+            sx={{ zIndex: "-1", textTransform: "none", font: "inherit" }}
+          />
         </Tabs>
       </Box>
       {/* <StyledSectionDiv>
         <div></div>
         <div></div>
       </StyledSectionDiv> */}
-      <ul>{lis}</ul>
+      <StyledUl>{lis}</StyledUl>
     </StyledSection>
   );
 }

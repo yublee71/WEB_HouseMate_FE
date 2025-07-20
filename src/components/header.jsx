@@ -21,8 +21,9 @@ const StyledHeaderContent = styled("div")(({ theme }) => ({
   flexDirection: "row",
   justifyContent: "space-between",
   width: "100%",
-  gap: "5%",
+  gap: "10%",
   alignItems: "center",
+  margin: "0 20px",
 }));
 
 export function Header({ logo, title }) {

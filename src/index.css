@@ -37,12 +37,14 @@ a {
 
 h1 {
   margin: 0;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
+  margin-left: 10px;
   white-space: nowrap;
 }
 
 h2 {
   margin: 0;
+  margin-bottom: 8px;
 }
 
 input,
