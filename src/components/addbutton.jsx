@@ -26,7 +26,7 @@ export function AddButton({ groceries, setgroceries, chores, setchores }) {
     <>
       <StyledAddButton>
         <img
-          src="/src/assets/addsign.png"
+          src="/addsign.png"
           alt="add sign"
           height="24px"
           onClick={() => {
