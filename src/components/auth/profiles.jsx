@@ -15,7 +15,7 @@ import Settings from "@mui/icons-material/Settings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export function Profiles() {
-  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(true);
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
   const [usr, setUser] = useState(null);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (usr) => {
