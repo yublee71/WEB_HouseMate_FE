@@ -15,14 +15,16 @@ import Settings from "@mui/icons-material/Settings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export function Profiles() {
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(true);
   const [usr, setUser] = useState(null);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (usr) => {
       setUser(usr);
+      setIsLoading(false);
     });
     return () => unsubscribe();
   }, []);
-  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const onAvatarClick = async (event) => {
     setAnchorEl(event.currentTarget);
@@ -70,6 +72,14 @@ export function Profiles() {
             {...stringAvatar(usr.displayName)}
           ></Avatar>
         </Box>
+      ) : isLoading ? (
+        <Box
+          sx={{
+            width: {
+              sm: "112px",
+            },
+          }}
+        ></Box>
       ) : (
         <Button
           onClick={onLoginClick}
