@@ -1,7 +1,9 @@
 function SideBar() {
   return (
     <button>
-      <img src="/menu.png" alt="menu button" height="34rem" />
+      <div style={{ width: "34px" }}>
+        <img src="/menu.png" alt="menu button" width="100%" />
+      </div>
     </button>
   );
 }
