@@ -20,6 +20,7 @@ const Wrapper = styled.div`
   align-items: center;
   text-align: center;
   gap: 10px;
+  z-index: 10;
 `;
 
 const ToggleButton = styled.button`
