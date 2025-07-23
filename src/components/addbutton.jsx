@@ -12,6 +12,9 @@ const StyledAddButton = styled("button")(({ theme }) => ({
   right: "32px",
   backgroundColor: theme.palette.secondary.main,
   padding: "2px 0 0 2px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
   img: {
     height: "30%",
     "&:hover": {
