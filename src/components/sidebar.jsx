@@ -1,8 +1,8 @@
 function SideBar() {
   return (
-    <a href="/">
+    <button>
       <img src="/menu.png" alt="menu button" height="34rem" />
-    </a>
+    </button>
   );
 }
 
