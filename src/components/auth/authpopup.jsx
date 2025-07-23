@@ -33,6 +33,7 @@ const ToggleButton = styled.button`
   &:hover {
     text-decoration: underline;
   }
+  padding: 0 6px;
 `;
 
 const CloseButton = styled.img`

@@ -27,15 +27,12 @@ export function AddButton({ groceries, setgroceries, chores, setchores }) {
   const [isVisible, setisVisible] = useState(false);
   return (
     <>
-      <StyledAddButton>
-        <img
-          src="/addsign.png"
-          alt="add sign"
-          height="24px"
-          onClick={() => {
-            setisVisible(true);
-          }}
-        />
+      <StyledAddButton
+        onClick={() => {
+          setisVisible(true);
+        }}
+      >
+        <img src="/addsign.png" alt="add sign" height="24px" />
       </StyledAddButton>
       {isVisible && (
         <AddSection
