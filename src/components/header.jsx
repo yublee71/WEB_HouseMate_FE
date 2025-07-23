@@ -12,7 +12,6 @@ const StyledHeader = styled("header")(({ theme }) => ({
   gap: "2rem",
   padding: "2rem",
   height: "3rem",
-  width: "100vw",
   boxSizing: "border-box",
   [theme.breakpoints.down("sm")]: {
     gap: 0,
@@ -25,12 +24,11 @@ const StyledHeaderContent = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
-  width: "100%",
-  gap: "10%",
+  flexGrow: 1,
+  gap: "15px",
   alignItems: "center",
   margin: "0 20px",
   [theme.breakpoints.down("sm")]: {
-    gap: 0,
     margin: 0,
     justifyContent: "space-around",
   },

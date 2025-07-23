@@ -5,10 +5,10 @@
   --color-grey-300: #b3b3b3;
   --color-red-100: #e44742;
   margin: 0;
-  min-height: 100vh;
 }
 
 #root {
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,14 +17,17 @@
 html,
 body {
   margin: 0;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 main {
+  width: 100vw;
+  height: 100vh;
   flex: 1;
   display: flex;
   justify-content: space-around;
-  width: 100%;
   align-items: center;
 }
 
