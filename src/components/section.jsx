@@ -51,8 +51,8 @@ export function Section({ title, content }) {
   for (let i = 0; i < content.length; i++) {
     let t = content[i];
     lis.push(
-      <div>
-        <StyledInput type="checkbox" key={i} />
+      <div key={i}>
+        <StyledInput type="checkbox" />
         {t.item}
         <Divider sx={{ marginTop: "20px" }} />
       </div>
@@ -66,24 +66,21 @@ export function Section({ title, content }) {
           aria-label="basic tabs example"
           variant="fullWidth"
           centered
+          value={1}
           sx={{ fontSize: "18px" }}
         >
           <Tab
             label="Recurring"
-            value="1"
+            value={1}
             sx={{ zIndex: "-1", textTransform: "none", font: "inherit" }}
           />
           <Tab
             label="One-off"
-            value="2"
+            value={2}
             sx={{ zIndex: "-1", textTransform: "none", font: "inherit" }}
           />
         </Tabs>
       </Box>
-      {/* <StyledSectionDiv>
-        <div></div>
-        <div></div>
-      </StyledSectionDiv> */}
       <StyledUl>{lis}</StyledUl>
     </StyledSection>
   );

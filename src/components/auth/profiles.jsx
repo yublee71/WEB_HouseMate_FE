@@ -52,9 +52,10 @@ export function Profiles() {
         bgcolor: "#4697e2",
         cursor: "pointer",
       },
-      children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+      children: `${name.split(" ")[0][0].toUpperCase()}${name.split(" ")[1]?.[0]?.toUpperCase() ?? ""}`,
     };
   }
+  console.dir(auth);
   return (
     <>
       {usr ? (

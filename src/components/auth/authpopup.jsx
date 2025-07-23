@@ -57,7 +57,7 @@ export function AuthPopup({ setIsPopupOpen }) {
     <Wrapper>
       {isMember ? (
         <StyledDiv>
-          <LoginForm />
+          <LoginForm setIsPopupOpen={setIsPopupOpen} />
           Don&apos;t have an account?
           <ToggleButton onClick={onClick}>Sign Up</ToggleButton>
         </StyledDiv>
