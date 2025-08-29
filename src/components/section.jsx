@@ -1,4 +1,5 @@
-import { Box, Tab, Tabs, Divider } from "@mui/material";
+import { Box, Tab, Tabs, Divider, Typography } from "@mui/material";
+import { useState } from "react";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
@@ -14,74 +15,107 @@ const StyledUl = styled.ul`
   flex-direction: column;
   gap: 30px;
   padding: 0px;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   font-size: 18px;
   @media (max-width: 600px) {
     gap: 10px;
     margin-top: 15px;
   }
 `;
-// const StyledSectionDiv = styled.div`
-//   height: 3rem;
-//   margin: 10px 0;
-//   border-radius: 15px;
-//   background-color: var(--color-grey-100);
-//   display: flex;
-//   align-items: center;
-//   div {
-//     width: 50%;
-//   }
-//   div:first-child {
-//     height: 2.2rem;
-//     width: 50%;
-//     border-radius: 13px;
-//     margin: 0 8px;
-//     background-color: white;
-//     box-shadow: 0px 1px 9px rgba(128, 128, 128, 0.404);
-//   }
-// `;
 
 const StyledInput = styled.input`
   display: inline-block;
   margin-right: 14px;
 `;
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`scrollable-auto-tabpanel-${index}`}
+      aria-labelledby={`scrollable-auto-tab-${index}`}
+      {...other}
+    >
+      <Box p={3}>
+        <StyledUl>{children}</StyledUl>
+      </Box>
+    </Typography>
+  );
+}
+
+function allyProps(index) {
+  return {
+    id: `scrollable-auto-tab-${index}`,
+    "aria-controls": `scrollable-auto-tabpanel-${index}`,
+  };
+}
+
 export function Section({ title, content }) {
-  const lis = [];
+  const [value, setValue] = useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+  const recurringLis = [];
   for (let i = 0; i < content.length; i++) {
     let t = content[i];
-    lis.push(
-      <div key={i}>
-        <StyledInput type="checkbox" />
-        {t.item}
-        <Divider sx={{ marginTop: "20px" }} />
-      </div>
-    );
+    if (t.category == 0)
+      recurringLis.push(
+        <div key={i}>
+          <StyledInput type="checkbox" />
+          {t.item}
+          <Divider sx={{ marginTop: "20px" }} />
+        </div>
+      );
+  }
+  const oneOffLis = [];
+  for (let i = 0; i < content.length; i++) {
+    let t = content[i];
+    if (t.category == 1)
+      oneOffLis.push(
+        <div key={i}>
+          <StyledInput type="checkbox" />
+          {t.item}
+          <Divider sx={{ marginTop: "20px" }} />
+        </div>
+      );
   }
   return (
     <StyledSection>
       <h2>{title}</h2>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
-          aria-label="basic tabs example"
+          aria-label="section tabs"
           variant="fullWidth"
+          scrollButtons="auto"
           centered
-          value={1}
+          value={value}
+          onChange={handleChange}
           sx={{ fontSize: "18px" }}
         >
           <Tab
             label="Recurring"
-            value={1}
-            sx={{ zIndex: "-1", textTransform: "none", font: "inherit" }}
+            value={0}
+            sx={{ textTransform: "none", font: "inherit" }}
+            {...allyProps(0)}
           />
           <Tab
             label="One-off"
-            value={2}
-            sx={{ zIndex: "-1", textTransform: "none", font: "inherit" }}
+            value={1}
+            sx={{ textTransform: "none", font: "inherit" }}
+            {...allyProps(1)}
           />
         </Tabs>
       </Box>
-      <StyledUl>{lis}</StyledUl>
+      <TabPanel value={value} index={0}>
+        {recurringLis}
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        {oneOffLis}
+      </TabPanel>
+      {/* <StyledUl>{lis}</StyledUl> */}
     </StyledSection>
   );
 }

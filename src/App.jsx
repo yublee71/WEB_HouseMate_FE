@@ -30,14 +30,14 @@ const theme = createTheme({
 
 function App() {
   const [groceries, setgroceries] = useState([
-    { item: "grocery list1" },
-    { item: "grocery list2" },
-    { item: "grocery list3" },
+    { item: "potato", category: 0 },
+    { item: "avocado", category: 0 },
+    { item: "towel", category: 1 },
   ]);
   const [chores, setchores] = useState([
-    { item: "to-do list1" },
-    { item: "to-do list2" },
-    { item: "to-do list3" },
+    { item: "clean the oven", owner: "Yubeen Lee" },
+    { item: "take out the garbage", owner: "Yubeen :ee" },
+    { item: "vacuum", owner: "my flatmate" },
   ]);
   return (
     <ThemeProvider theme={theme}>
@@ -52,7 +52,6 @@ function App() {
         chores={chores}
         setchores={setchores}
       ></AddButton>
-      {/* <Footer></Footer> */}
     </ThemeProvider>
   );
 }

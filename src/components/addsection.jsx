@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { Button } from "@mui/material";
 
 const StyledAddSection = styled.section`
   position: fixed;
@@ -47,7 +48,9 @@ export function AddSection(props) {
       >
         <label htmlFor="item">Add item</label>
         <input type="text" id="item" name="item" placeholder="item" required />
-        <button type="submit">submit</button>
+        <Button type="submit" variant="contained">
+          submit
+        </Button>
       </form>
     </StyledAddSection>
   );
