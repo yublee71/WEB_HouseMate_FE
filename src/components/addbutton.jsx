@@ -23,7 +23,15 @@ const StyledAddButton = styled("button")(({ theme }) => ({
   },
 }));
 
-export function AddButton({ groceries, setgroceries, chores, setchores }) {
+export function AddButton({
+  groceries,
+  setGroceries,
+  chores,
+  setchores,
+  groceriesCategories,
+  choresCategories,
+  users,
+}) {
   const [isVisible, setisVisible] = useState(false);
   return (
     <>
@@ -38,9 +46,12 @@ export function AddButton({ groceries, setgroceries, chores, setchores }) {
         <AddSection
           setVisibility={setisVisible}
           groceries={groceries}
-          setgroceries={setgroceries}
+          setGroceries={setGroceries}
           chores={chores}
           setchores={setchores}
+          groceriesCategories={groceriesCategories}
+          choresCategories={choresCategories}
+          users={users}
         />
       )}
     </>

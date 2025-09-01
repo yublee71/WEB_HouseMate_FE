@@ -86,7 +86,6 @@ export function Section({ title, categories, content }) {
       <TabPanel value={value} index={1}>
         {content[1]}
       </TabPanel>
-      {/* <StyledUl>{lis}</StyledUl> */}
     </StyledSection>
   );
 }

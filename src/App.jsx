@@ -35,30 +35,48 @@ const StyledInput = styled.input`
   margin-right: 14px;
 `;
 
+const StyledImg = styled.img`
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 function App() {
   const groceriesCategories = ["Recurring", "One-off"];
   const choresCategories = ["My Task", "Others' task"];
-  const users = ["Yubeen Lee", "Riku Yano"];
+  const users = ["Yubeen Lee", "Some Rando"];
   const groceriesContent = [[], []];
   const choresContent = [[], []];
-  const [groceries, setGroceries] = useState([
-    { item: "potato", category: groceriesCategories[0] },
-    { item: "avocado", category: groceriesCategories[0] },
-    { item: "towel", category: groceriesCategories[1] },
-  ]);
-  const [chores, setChores] = useState([
-    { item: "clean the oven", owner: users[0] },
-    { item: "take out the garbage", owner: users[1] },
-    { item: "vacuum", owner: users[1] },
-  ]);
+  const [groceries, setGroceries] = useState([]);
+  const [chores, setChores] = useState([]);
   for (let i = 0; i < groceries.length; i++) {
     let t = groceries[i];
     for (let j = 0; j < groceriesCategories.length; j++)
       if (t.category == groceriesCategories[j])
         groceriesContent[j].push(
           <div key={i}>
-            <StyledInput type="checkbox" />
-            {t.item}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <div>
+                <StyledInput type="checkbox" />
+                {t.item}
+              </div>
+              <StyledImg
+                src="close.png"
+                alt="close"
+                height="15px"
+                onClick={() => {
+                  const updated = [...groceries];
+                  updated.splice(i, 1);
+                  setGroceries(updated);
+                }}
+              />
+            </div>
             <Divider sx={{ marginTop: "20px" }} />
           </div>
         );
@@ -70,8 +88,28 @@ function App() {
     else j = 1;
     choresContent[j].push(
       <div key={i}>
-        <StyledInput type="checkbox" />
-        {t.item}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <StyledInput type="checkbox" />
+            {t.item}
+          </div>
+          <StyledImg
+            src="close.png"
+            alt="close"
+            height="15px"
+            onClick={() => {
+              const updated = [...chores];
+              updated.splice(i, 1);
+              setChores(updated);
+            }}
+          />
+        </div>
         <Divider sx={{ marginTop: "20px" }} />
       </div>
     );
@@ -87,9 +125,12 @@ function App() {
       ></MainSection>
       <AddButton
         groceries={groceries}
-        setgroceries={setGroceries}
+        setGroceries={setGroceries}
+        groceriesCategories={groceriesCategories}
         chores={chores}
         setchores={setChores}
+        choresCategories={choresCategories}
+        users={users}
       ></AddButton>
     </ThemeProvider>
   );
