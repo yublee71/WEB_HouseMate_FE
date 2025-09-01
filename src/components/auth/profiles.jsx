@@ -52,7 +52,9 @@ export function Profiles() {
         bgcolor: "#4697e2",
         cursor: "pointer",
       },
-      children: `${name.split(" ")[0][0].toUpperCase()}${name.split(" ")[1]?.[0]?.toUpperCase() ?? ""}`,
+      children: `${name.split(" ")[0][0].toUpperCase()}${
+        name.split(" ")[1]?.[0]?.toUpperCase() ?? ""
+      }`,
     };
   }
   console.dir(auth);
@@ -113,6 +115,7 @@ export function Profiles() {
             horizontal: "center",
           }}
           transformOrigin={{
+            vertical: "top",
             horizontal: "center",
           }}
           autoFocus={false}
