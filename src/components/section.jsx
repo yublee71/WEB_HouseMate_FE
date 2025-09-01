@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs, Divider, Typography } from "@mui/material";
+import { Box, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -21,11 +21,6 @@ const StyledUl = styled.ul`
     gap: 10px;
     margin-top: 15px;
   }
-`;
-
-const StyledInput = styled.input`
-  display: inline-block;
-  margin-right: 14px;
 `;
 
 function TabPanel(props) {
@@ -53,35 +48,11 @@ function allyProps(index) {
   };
 }
 
-export function Section({ title, content }) {
+export function Section({ title, categories, content }) {
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const recurringLis = [];
-  for (let i = 0; i < content.length; i++) {
-    let t = content[i];
-    if (t.category == 0)
-      recurringLis.push(
-        <div key={i}>
-          <StyledInput type="checkbox" />
-          {t.item}
-          <Divider sx={{ marginTop: "20px" }} />
-        </div>
-      );
-  }
-  const oneOffLis = [];
-  for (let i = 0; i < content.length; i++) {
-    let t = content[i];
-    if (t.category == 1)
-      oneOffLis.push(
-        <div key={i}>
-          <StyledInput type="checkbox" />
-          {t.item}
-          <Divider sx={{ marginTop: "20px" }} />
-        </div>
-      );
-  }
   return (
     <StyledSection>
       <h2>{title}</h2>
@@ -96,13 +67,13 @@ export function Section({ title, content }) {
           sx={{ fontSize: "18px" }}
         >
           <Tab
-            label="Recurring"
+            label={categories[0]}
             value={0}
             sx={{ textTransform: "none", font: "inherit" }}
             {...allyProps(0)}
           />
           <Tab
-            label="One-off"
+            label={categories[1]}
             value={1}
             sx={{ textTransform: "none", font: "inherit" }}
             {...allyProps(1)}
@@ -110,10 +81,10 @@ export function Section({ title, content }) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        {recurringLis}
+        {content[0]}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        {oneOffLis}
+        {content[1]}
       </TabPanel>
       {/* <StyledUl>{lis}</StyledUl> */}
     </StyledSection>

@@ -10,11 +10,24 @@ const StyledMain = styled.main`
   }
 `;
 
-export function MainSection({ firstSection, secondSection }) {
+export function MainSection({
+  groceriesCategories,
+  choresCategories,
+  groceriesContent,
+  choresContent,
+}) {
   return (
     <StyledMain>
-      <Section title="To-buy" content={firstSection}></Section>
-      <Section title="To-do" content={secondSection}></Section>
+      <Section
+        title="To-buy"
+        categories={groceriesCategories}
+        content={groceriesContent}
+      ></Section>
+      <Section
+        title="To-do"
+        categories={choresCategories}
+        content={choresContent}
+      ></Section>
     </StyledMain>
   );
 }
