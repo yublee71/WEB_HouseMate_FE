@@ -14,17 +14,8 @@ import Logout from "@mui/icons-material/Logout";
 import Settings from "@mui/icons-material/Settings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-export function Profiles() {
+export function Profiles({ usr, isLoading }) {
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
-  const [usr, setUser] = useState(null);
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (usr) => {
-      setUser(usr);
-      setIsLoading(false);
-    });
-    return () => unsubscribe();
-  }, []);
-  const [isLoading, setIsLoading] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const onAvatarClick = async (event) => {
     setAnchorEl(event.currentTarget);
@@ -57,7 +48,6 @@ export function Profiles() {
       }`,
     };
   }
-  console.dir(auth);
   return (
     <>
       {usr ? (

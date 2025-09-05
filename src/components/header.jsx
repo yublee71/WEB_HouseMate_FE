@@ -34,7 +34,7 @@ const StyledHeaderContent = styled("div")(({ theme }) => ({
   },
 }));
 
-export function Header({ logo, title }) {
+export function Header({ logo, title, usr, isLoading }) {
   return (
     <StyledHeader>
       <SideBar />
@@ -45,7 +45,7 @@ export function Header({ logo, title }) {
           </a>
         </h1>
         <SearchBar />
-        <Profiles />
+        <Profiles usr={usr} isLoading={isLoading} />
       </StyledHeaderContent>
     </StyledHeader>
   );

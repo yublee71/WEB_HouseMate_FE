@@ -55,7 +55,6 @@ export function AddSection(props) {
   let setGroceries = props.setGroceries;
   let setchores = props.setchores;
   let groceriesCategories = props.groceriesCategories;
-  let choresCategories = props.choresCategories;
   let users = props.users;
   const [maincategory, setMaincategory] = useState("To-buy");
   const [subcategory, setSubcategory] = useState("");

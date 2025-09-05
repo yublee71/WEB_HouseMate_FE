@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "@/components/header";
 import { MainSection } from "@/components/mainsection";
 import { Footer } from "@/components/footer";
@@ -8,6 +8,8 @@ import { AddButton } from "./components/addbutton";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import styled from "styled-components";
 import { Divider } from "@mui/material";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
 
 const theme = createTheme({
   palette: {
@@ -42,9 +44,18 @@ const StyledImg = styled.img`
 `;
 
 function App() {
+  const [usr, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (usr) => {
+      setUser(usr);
+      setIsLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
   const groceriesCategories = ["Recurring", "One-off"];
   const choresCategories = ["My Task", "Others' task"];
-  const users = ["Yubeen Lee", "Some Rando"];
+  const users = [usr.displayName, "Some Rando"];
   const groceriesContent = [[], []];
   const choresContent = [[], []];
   const [groceries, setGroceries] = useState([]);
@@ -84,7 +95,7 @@ function App() {
   for (let i = 0; i < chores.length; i++) {
     let t = chores[i];
     let j;
-    if (t.owner == "Yubeen Lee") j = 0;
+    if (t.owner == usr.displayName) j = 0;
     else j = 1;
     choresContent[j].push(
       <div key={i}>
@@ -116,7 +127,12 @@ function App() {
   }
   return (
     <ThemeProvider theme={theme}>
-      <Header logo="🏡" title="HouseMate"></Header>
+      <Header
+        logo="🏡"
+        title="HouseMate"
+        usr={usr}
+        isLoading={isLoading}
+      ></Header>
       <MainSection
         groceriesCategories={groceriesCategories}
         groceriesContent={groceriesContent}
@@ -129,7 +145,6 @@ function App() {
         groceriesCategories={groceriesCategories}
         chores={chores}
         setchores={setChores}
-        choresCategories={choresCategories}
         users={users}
       ></AddButton>
     </ThemeProvider>
